@@ -1,0 +1,7 @@
+node_modules/
+public/
+.deploy_git/
+scaffolds/
+_config.*
+db.json
+themes/paper/_config.*
