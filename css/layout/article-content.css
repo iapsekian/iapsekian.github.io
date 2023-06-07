@@ -333,7 +333,7 @@
   margin: 0px 0 30px 0;
   line-height: 1.4;
   color: var(--second-text-color);
-  font-family: 'JasonHandwriting1 Regular', 'Open Sans', 'Noto Sans', sans-serif, 'JasonHandwriting1 Regular', 'Noto Sans SC', sans-serif, "Noto Sans SC", sans-serif;
+  font-family: 'JasonHandwriting1 Regular', 'Open Sans', 'Noto Sans', sans-serif, 'JasonHandwriting1 Regular', 'Noto Sans SC', sans-serif, 'Noto Sans SC', sans-serif;
 }
 .post-page-container .article-content-container .article-title .article-title-cover {
   display: flex;
@@ -344,7 +344,7 @@
   bottom: 36px;
   left: 0;
   text-align: center;
-  font-family: 'JasonHandwriting1 Regular', 'Open Sans', 'Noto Sans', sans-serif, 'JasonHandwriting1 Regular', 'Noto Sans SC', sans-serif, "Noto Sans SC", sans-serif;
+  font-family: 'JasonHandwriting1 Regular', 'Open Sans', 'Noto Sans', sans-serif, 'JasonHandwriting1 Regular', 'Noto Sans SC', sans-serif, 'Noto Sans SC', sans-serif;
   color: var(--second-text-color);
   font-size: 3.2rem;
   font-weight: 600;
@@ -368,7 +368,7 @@
   }
 }
 .post-page-container .article-content-container .article-header {
-  font-family: 'JasonHandwriting1 Regular', 'Open Sans', 'Noto Sans', sans-serif, 'JasonHandwriting1 Regular', 'Noto Sans SC', sans-serif, "Noto Sans", "Noto Sans SC", sans-serif;
+  font-family: 'JasonHandwriting1 Regular', 'Open Sans', 'Noto Sans', sans-serif, 'JasonHandwriting1 Regular', 'Noto Sans SC', sans-serif, 'Noto Sans', 'Noto Sans SC', sans-serif;
   position: relative;
   padding-left: 46px;
   width: 100%;

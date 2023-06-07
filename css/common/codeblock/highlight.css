@@ -369,7 +369,7 @@ pre,
 }
 pre,
 code {
-  font-family: 'Source Code Pro', "Ubuntu Mono", Courier, monospace;
+  font-family: 'Source Code Pro', 'Ubuntu Mono', Courier, monospace;
 }
 pre.mermaid {
   background-color: var(--background-color);
