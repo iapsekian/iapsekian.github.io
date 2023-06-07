@@ -1,0 +1,12 @@
+- name: EvanNotFound's Blog
+  link: https://ohevan.com
+  description: 用香港记者的速度更新文章
+  avatar: https://evan.beee.top/avatar.png
+ 
+- name: Example Site
+  link: https://example.com
+  description: Example Site Description
+  avatar: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ 
+- ......  
+ 

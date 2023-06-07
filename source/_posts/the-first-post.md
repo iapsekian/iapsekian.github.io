@@ -1,7 +1,13 @@
 ---
 title: Te It Phiⁿ Bûn
 date: 2023-05-05 16:59:56
-tags:
+tags: 
+categories: 
+thumbnail: 
+cover: 
+# banner: the same as cover
+Excerpt: 
+sticky: 999
 ---
 # Te It Phiⁿ Bûn
 

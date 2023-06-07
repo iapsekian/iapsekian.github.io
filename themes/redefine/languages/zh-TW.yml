@@ -13,17 +13,17 @@ share: Hun-hióng
 powered_by: "%s framework"
 theme: Chú-tê
 rss_feed: RSS tēng-oa̍t
-# category: Lūi-Pia̍t
+category: Lūi-Pia̍t
 # categories: Lūi-Pia̍t
-category: Category
+# category: Category
 categories: Categories
-# tag: Chhiam-Thâu
+tag: Chhiam-Thâu
 # tags: Chhiam-Thâu
-tag: Tag
+# tag: Tag
 tags: Tags
-# post: Bûn-Chiong
+post: Bûn-Chiong
 # posts: Bûn-Chiong
-post: Post
+# post: Post
 posts: Posts
 tagcloud: Chhiam-Thâu-Hûn
 comment: Lâu-ōe
@@ -37,7 +37,7 @@ sticky: Tèng-tiâuPosts
 home: Thâu-Ia̍h
 archive: Le̍k-Sú Tóng-Àn
 archives: Kui-Tóng
-about: Koan-Î
+about: Koan-Î Góa
 links: Kiat-liân
 link: Kiat-liân
 friends: Pêng-iú ê kiat-liân
@@ -46,6 +46,14 @@ timeline: Sî-kan-te̍k
 shuoshuo: Kóng khóaⁿ māi
 changelog: Ji̍t-chì
 status: Chōng-thài
+photo: Siōng-phìⁿ
+photos: Siōng-phō͘
+gallery: Gē-su̍t tiong-sim
+masonry: Gē-lông
+resource: Chu-goân
+resources: Chu-goân
+me: Góa pún-lâng
+blog: Su-jîn ê bóng-chām
 
 # ----------------------------------------
 # 网站统计
