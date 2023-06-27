@@ -30,11 +30,11 @@
 
 ## 📷 屏幕截图
 
-![redefine-1-final](https://user-images.githubusercontent.com/68590232/235559377-ac157edd-19eb-4596-9ef2-211eec0b6fe7.png)
+![redefine-1-final](https://github.com/EvanNotFound/hexo-theme-redefine/assets/68590232/1c4f802b-b949-4313-8935-6ea5178be9e3)
 
-![redefine-2-final](https://user-images.githubusercontent.com/68590232/235559385-c13132ca-29c5-4b01-bd1b-e37ca500c824.png)
+![redefine-2-final](https://github.com/EvanNotFound/hexo-theme-redefine/assets/68590232/bf6529a6-bce9-4388-899c-1d96325c49d6)
 
-![redefine-3-final](https://user-images.githubusercontent.com/68590232/235559394-ebf339f6-3297-485c-85cc-834eb3ea986e.png)
+![redefine-3-final](https://github.com/EvanNotFound/hexo-theme-redefine/assets/68590232/33ee3d7c-189c-4b75-89c9-914b0cb63caf)
 
 ## 🌐 官方演示站
 
@@ -131,3 +131,9 @@ $ git clone https://github.com/EvanNotFound/hexo-theme-redefine.git themes/redef
 ## 🌟 Star 记录
 
 [![Star History Chart](https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date)](https://star-history.com/#EvanNotFound/hexo-theme-redefine&Date)
+
+## 📢 其他
+
+如果你恰好需要云主机，可以去 [Racknerd](https://my.racknerd.com/aff.php?aff=8346) 看看，性价比高。
+
+很多活动，比如 2核 2G 活动价一年只要 20 刀，比国内云便宜而且还没有监管，可以用来部署各种服务。

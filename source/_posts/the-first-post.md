@@ -22,3 +22,6 @@ Lú chia̍h lú lāu, lú kám kak tâi-gí tih-beh siau-sit khì. Sè-hàn ê s
 ## Bī-Lâi ê Hong-Hiòng
 
 （Iá-bē siá liáu）
+
+![DaDa and Flowers](https://i.imgur.com/CeGAx9P.png) ![BB and Flowers](https://i.imgur.com/yju2yPw.png)
+
