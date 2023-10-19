@@ -1,0 +1,55 @@
+<%- renderJS([
+    'js/utils.js',
+    'js/main.js',
+    'js/layouts/navbarShrink.js',
+    'js/tools/scrollTopBottom.js',
+    'js/tools/lightDarkSwitch.js',
+]) %>
+
+<% if (theme.navbar.search.enable) { %>
+    <%- renderJS('js/tools/localSearch.js') %>
+<% } %>
+
+<% if (theme.articles.code_block.copy) { %>
+    <%- renderJS('js/tools/codeBlock.js') %>
+<% } %>
+
+<% if (theme.articles.lazyload) { %>
+    <%- renderJS('js/layouts/lazyload.js') %>
+<% } %>
+
+<% if (theme.footer.runtime) { %>
+    <%- renderJS('js/tools/runtime.js') %>
+    <%- renderJS('js/libs/odometer.min.js') %>
+    <%- renderCSS('assets/odometer-theme-minimal.css') %>
+<% } %>
+
+<% if (theme.home_banner.subtitle.length !== 0) { %>
+  <%- renderJS('js/libs/Typed.min.js') %>
+  <%- renderJS('js/plugins/typed.js') %>
+<% } %>
+
+<% if (theme.plugins.mermaid.enable) { %>
+    <%- renderJS('js/libs/mermaid.min.js') %>
+    <%- renderJS('js/plugins/mermaid.js') %>
+<% } %>
+
+<% if (theme.masonry || theme.photos || theme.gallery) { %>
+    <%- renderJS('js/libs/minimasonry.min.js') %>
+    <%- renderJS('js/plugins/masonry.js') %>
+<% } %>
+
+<div class="post-scripts<%= theme.global.pjax === true ? ' pjax' : '' %>">
+    <% if (theme.articles.toc.enable && is_post()) { %>
+        <%- renderJS([
+            'js/tools/tocToggle.js',
+            'js/libs/anime.min.js',
+            'js/layouts/toc.js',
+            'js/plugins/tabs.js',
+        ]) %>
+    <% } %>
+</div>
+
+<% if (theme.global.pjax === true) { %>
+    <%- partial('_plugins/pjax') %>
+<% } %>

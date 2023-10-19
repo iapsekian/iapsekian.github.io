@@ -1,7 +1,7 @@
 <div align="right">
-  <img src="https://img.shields.io/badge/-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-A31F34?style=for-the-badge" alt="language">
   <a title="en" href="README.md"><img src="https://img.shields.io/badge/-English-545759?style=for-the-badge" alt="english"></a>
   <a title="zh-CN" href="README_zh-CN.md">  <img src="https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-545759?style=for-the-badge" alt="简体中文"></a>
+  <img src="https://img.shields.io/badge/-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-A31F34?style=for-the-badge" alt="language">
 </div>
 
 <a href="https://redefine.ohevan.com"><img align="center" src="https://user-images.githubusercontent.com/68590232/226141917-68124e8f-fde0-4edd-b86d-c62932ec369a.png"  alt="Redefine"></a>
@@ -10,10 +10,9 @@
 
 # hexo-theme-redefine
 
-"Redefine" 是一個簡潔、快速、純净的 hexo 主題。簡潔，但不簡單。本主題包含很多廣泛使用的功能，並擁有著優秀的設計。
+"Redefine" 是一款簡潔、快速、純粹的 Hexo 主題，其簡約之美遙非平凡，讓人領略到設計的力量。本主題不僅包含諸多實用豐富的功能，而且賦予了精緻而出色的設計理念。
 
-本主題基於 [hexo-theme-keep](https://github.com/XPoet/hexo-theme-keep) 開發，感謝 XPoet 的開源。本主題主要優化了樣式，增加了寫作模塊，以及各種插件的支持。同時加大自定義程度，讓你可以更加方便的使用本主題。
-
+本主題源自 [hexo-theme-keep](https://github.com/XPoet/hexo-theme-keep) 的早期版本，進一步進行了精心打磨和擴展。在保留了原主題的精煉基礎上，我們優化了整體風格，引入了豐富的寫作模組，並增添了多種插件支持。同時，大幅提高了自定義的靈活度，旨在讓您能夠更加便捷、順暢地運用本主題，打造出獨具匠心的個人博客。
 <p align="center">
     <a href="https://www.npmjs.com/package/hexo-theme-redefine">
         <img src="https://img.shields.io/npm/v/hexo-theme-redefine?color=F38181&amp;label=version&amp;logo=npm&amp;logoColor=F38181&amp;style=for-the-badge" referrerpolicy="no-referrer" alt="NPM version" />
@@ -64,6 +63,7 @@
 - [Aplayer 音樂播放器支持](https://redefine-docs.ohevan.com/plugins/aplayer)
 - [說說模塊](https://redefine-docs.ohevan.com/shuoshuo)
 - [自定義字體](https://redefine-docs.ohevan.com/basic/global#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93)
+- Tailwind CSS 支持
 
 ## ☁️ 安裝
 
@@ -133,10 +133,16 @@ $ git clone https://github.com/EvanNotFound/hexo-theme-redefine.git themes/redef
 
 ## 🌟 Star 記錄
 
-[![Star History Chart](https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date)](https://star-history.com/#EvanNotFound/hexo-theme-redefine&Date)
+<a href="https://star-history.com/#EvanNotFound/hexo-theme-redefine&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date" />
+  </picture>
+</a>
 
-## 📢 其他
+## 💻 主题开发
 
-如果你恰好需要雲主機，可以去 [Racknerd](https://my.racknerd.com/aff.php?aff=8346) 看看，性價比高。
+如果你想參與主題開發，請 `clone` 本專案的 `dev` 分支，然後在 `dev` 分支上進行開發。
 
-很多活動，比如 2核 2G 活動價一年只要 20 刀，比國內云便宜而且還沒有監管，可以用來部署各種服務。
+同時，請查看 [Redefine 主題開發文件](https://redefine-docs.ohevan.com/developer)。

@@ -5,7 +5,7 @@
         theme.comment.config.giscus.category_id
     ) { %>
     <div id="giscus-container"></div>
-    <script <%= theme.global.pjax === true ? 'data-pjax' : '' %> defer>
+    <script <%= theme.global.single_page === true ? 'data-swup-reload-script' : '' %> defer>
         async function loadGiscus() {
             const giscusConfig = {
                 'src': 'https://giscus.app/client.js',
@@ -30,13 +30,13 @@
             }
             document.getElementById('giscus-container').appendChild(giscusScript);
         }
-        if ('<%= theme.global.pjax %>') {
+        if ('<%= theme.global.single_page %>') {
             let loadGiscusTimeout = setTimeout(() => {
                 loadGiscus();
                 clearTimeout(loadGiscusTimeout);
             }, 1000);
         } else {
-            window.addEventListener('DOMContentLoaded', loadGiscus);
+            document.addEventListener('DOMContentLoaded', loadGiscus);
         }
     </script>
 <% } %>

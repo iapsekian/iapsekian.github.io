@@ -1,0 +1,32 @@
+{
+  "name": "hexo-theme-redefine",
+  "version": "2.1.5",
+  "private": false,
+  "description": "Redefine your writing with modern style and various functionality in 'Redefine' Hexo Theme.",
+  "scripts": {
+    "npm:publish": "npm publish",
+    "format": "prettier --write ./source/js/*.js ./scripts",
+    "lint:style": "stylelint --fix ./source/css",
+    "git:push": "git push --tag && git push -u origin dev",
+    "git:add": "npm run lint:style && git add ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvanNotFound/hexo-theme-redefine.git"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "redefine",
+    "simple",
+    "pure",
+    "powerful",
+    "hexo-theme"
+  ],
+  "author": "EvanNotFound",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/EvanNotFound/hexo-theme-redefine/issues"
+  },
+  "homepage": "https://github.com/EvanNotFound/hexo-theme-redefine#readme"
+}

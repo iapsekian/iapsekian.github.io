@@ -10,11 +10,9 @@
 
 # hexo-theme-redefine
 
-"Redefine" hexo theme is **a simple & fast & pure theme**, but with **no compromise**. This theme contains lots of widely use functions and great web design.
+"Redefine" hexo theme is a blend of **simplicity, speed, and purity**, yet it makes **no compromises** on functionality or design. Loaded with widely utilized features and polished web design, it seamlessly marries practicality with aesthetics.
 
-Hexo Theme Redefine source code is based on [hexo-theme-keep](https://github.com/XPoet/hexo-theme-keep). Redefine Theme optimized its style and added useful writing modules and plugins. Also, you can customize many things in this theme.
-
-
+Drawing its core from [hexo-theme-keep](https://github.com/XPoet/hexo-theme-keep), this theme elevates the foundation by enhancing the style and integrating valuable writing modules and plugins. The theme encourages personalization, offering extensive customizability to mold various facets to your liking, making your blogging journey truly unique and user-friendly.
 
 
 <p align="center">
@@ -43,7 +41,7 @@ Hexo Theme Redefine source code is based on [hexo-theme-keep](https://github.com
 
 ![redefine-3-final](https://github.com/EvanNotFound/hexo-theme-redefine/assets/68590232/33ee3d7c-189c-4b75-89c9-914b0cb63caf)
 
-## 🌐 Online Demo
+## 🌐 Demo
 
 - [EvanNotFound's Blog](https://ohevan.com)
 - [Theme Redefine Demo](https://redefine.ohevan.com)
@@ -51,7 +49,7 @@ Hexo Theme Redefine source code is based on [hexo-theme-keep](https://github.com
 
 If you are also using Redefine, please go to [Redefine Theme Showcase](https://redefine.ohevan.com/showcase) to add your blog link.
 
-## ⛰️ Some functions
+## ⛰️ Features
 
 - [Note Module](https://redefine-docs.ohevan.com/modules/notes)
 - [Friend Link Page](https://redefine-docs.ohevan.com/page_templates/friends)
@@ -68,6 +66,7 @@ If you are also using Redefine, please go to [Redefine Theme Showcase](https://r
 - [Aplayer support](https://redefine-docs.ohevan.com/plugins/aplayer)
 - [Shuoshuo support](https://redefine-docs.ohevan.com/shuoshuo)
 - [Customizable Font](https://redefine-docs.ohevan.com/basic/global#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93)
+- Tailwind CSS Included
 
 
 
@@ -131,7 +130,7 @@ Also, if you are using [Typora](https://typora.io/), check out [Typora Theme Red
 
 Thanks to all the people who have donated to me. Your support is my greatest motivation.
 
-If you like this theme, you can also support me by donating.
+If you like this theme, please give a star. You can also support me by [donating](https://github.com/EvanNotFound/hexo-theme-redefine/blob/dev/DONATION.md).
 
 This is the list of all the people who have donated to me: [Donation List](https://github.com/EvanNotFound/hexo-theme-redefine/blob/dev/DONATION.md)
 
@@ -139,5 +138,14 @@ Thanks to all of you!
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date)](https://star-history.com/#EvanNotFound/hexo-theme-redefine&Date)
+<a href="https://star-history.com/#EvanNotFound/hexo-theme-redefine&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=EvanNotFound/hexo-theme-redefine&type=Date" />
+  </picture>
+</a>
 
+## 💻 Development
+
+If you want to contribute to this project, you can clone the `dev` branch and check out the [Development Docs](https://redefine-docs.ohevan.com/developer) to get started.

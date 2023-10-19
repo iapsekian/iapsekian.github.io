@@ -88,6 +88,9 @@ copyright:
   update_time: Hoan-sin sî-kan
   license_title: Pán-khoân soan-kò
   license_content: "Chit ê bóng-chām pán-khoân iōng %s hong-sek。"
+  all_rights_reserved: "Pó-liû só͘-iú koân-lī &#169 %s"
+  public_domain: "本作品已在公共領域中，可自由轉載、修改、散佈，需chù-bêng作者。"
+
 ago:
   second: "%s bió chin-chêng"
   minute: "%s hun cheng chin-chêng"
@@ -99,3 +102,4 @@ ago:
 
 create_time: Kiàn-li̍p sî-kan
 update_time: Hoan-sin sî-kan
+expired: "Chit phiⁿ bûn-chiong chòe-āu pian-chi̍p tī le %s kang chìn chêng, lāi-iông ū-khó-lêng í-keng kòe-sî."

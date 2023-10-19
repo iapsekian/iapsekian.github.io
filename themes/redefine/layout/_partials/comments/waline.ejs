@@ -5,8 +5,8 @@
 ) { %>
  
     <div id="waline"></div>
-    <script type="module"  <%= theme.global.pjax === true ? 'data-pjax' : '' %>>
-        import { init } from 'https://evan.beee.top/js/waline.mjs';
+    <script type="module"  <%= theme.global.single_page === true ? 'data-swup-reload-script' : '' %>>
+        import { init } from '<%= renderJSPath('js/libs/waline.mjs') %>';
 
         function loadWaline() {
             init({
@@ -18,7 +18,7 @@
             });
         }
 
-        if ('<%= theme.global.pjax %>') {
+        if ('<%= theme.global.single_page %>') {
             const loadWalineTimeout = setTimeout(() => {
                 loadWaline();
                 clearTimeout(loadWalineTimeout);
