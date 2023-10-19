@@ -1,1 +1,53 @@
-function l(){var l=document.querySelectorAll(".all-category-list-item");let t=Array.from(l).filter((l=>l.parentElement.classList.contains("all-category-list")));t.forEach((function(l){l.querySelectorAll(".all-category-list-child").forEach((function(l){l.style.maxHeight="0px",l.style.marginTop="0px"}))})),t.forEach((function(l,e){l.addEventListener("click",(function(){(l.querySelectorAll(".all-category-list-child").forEach((function(l){l.style.maxHeight="0px"===l.style.maxHeight?"1000px":"0px",l.style.marginTop="0px"===l.style.marginTop?"15px":"0px"})),e%2==0&&t[e+1])&&t[e+1].querySelectorAll(".all-category-list-child").forEach((function(l){l.style.maxHeight="0px"===l.style.maxHeight?"1000px":"0px",l.style.marginTop="0px"===l.style.marginTop?"15px":"0px"}));e%2==1&&t[e-1]&&t[e-1].querySelectorAll(".all-category-list-child").forEach((function(l){l.style.maxHeight="0px"===l.style.maxHeight?"1000px":"0px",l.style.marginTop="0px"===l.style.marginTop?"15px":"0px"}))}))}))}!0===Global.theme_config.global.pjax&&Global.utils?l():window.addEventListener("DOMContentLoaded",l);
+const toggleStyle = (element, style, firstValue, secondValue) => {
+  element.style[style] =
+    element.style[style] === firstValue ? secondValue : firstValue;
+};
+
+const setupCategoryList = () => {
+  const parentElements = Array.from(
+    document.querySelectorAll(".all-category-list-item"),
+  ).filter((item) =>
+    item.parentElement.classList.contains("all-category-list"),
+  );
+
+  parentElements.forEach((parentElement) => {
+    const childElements = parentElement.querySelectorAll(
+      ".all-category-list-child",
+    );
+    childElements.forEach((childElement) => {
+      childElement.style.maxHeight = "0px";
+      childElement.style.marginTop = "0px";
+    });
+
+    parentElement.addEventListener("click", () => {
+      const clickedElementTopOffset = parentElement.offsetTop;
+      childElements.forEach((childElement) => {
+        toggleStyle(childElement, "maxHeight", "0px", "1000px");
+        toggleStyle(childElement, "marginTop", "0px", "15px");
+      });
+
+      parentElements.forEach((siblingElement) => {
+        if (
+          siblingElement.offsetTop === clickedElementTopOffset &&
+          siblingElement !== parentElement
+        ) {
+          const siblingChildElements = siblingElement.querySelectorAll(
+            ".all-category-list-child",
+          );
+          siblingChildElements.forEach((siblingChildElement) => {
+            toggleStyle(siblingChildElement, "maxHeight", "0px", "1000px");
+            toggleStyle(siblingChildElement, "marginTop", "0px", "15px");
+          });
+        }
+      });
+    });
+  });
+};
+
+try {
+  swup.hooks.on("page:view", setupCategoryList);
+} catch (e) {
+  console.error(e);
+}
+
+document.addEventListener("DOMContentLoaded", setupCategoryList);

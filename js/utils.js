@@ -1,1 +1,361 @@
-Global.initUtils=()=>{Global.utils={html_root_dom:document.querySelector("html"),pageContainer_dom:document.querySelector(".page-container"),pageTop_dom:document.querySelector(".main-content-header"),homeBanner_dom:document.querySelector(".home-banner-container"),scrollProgressBar_dom:document.querySelector(".scroll-progress-bar"),pjaxProgressBar_dom:document.querySelector(".pjax-progress-bar"),pjaxProgressIcon_dom:document.querySelector(".pjax-progress-icon"),backToTopButton_dom:document.querySelector(".tool-scroll-to-top"),toolsList:document.querySelector(".hidden-tools-list"),toggleButton:document.querySelector(".toggle-tools-list"),innerHeight:window.innerHeight,pjaxProgressBarTimer:null,prevScrollValue:0,fontSizeLevel:0,isHasScrollProgressBar:!0===Global.theme_config.global.scroll_progress.bar,isHasScrollPercent:!0===Global.theme_config.global.scroll_progress.percentage,updateScrollStyle(){const e=window.pageYOffset||document.documentElement.scrollTop,t=document.documentElement.scrollHeight,o=window.innerHeight||document.documentElement.clientHeight,s=this.calculatePercentage(e,t,o);this.updateScrollProgressBar(s),this.updateScrollPercent(s),this.updatePageTopVisibility(e,o),this.prevScrollValue=e},calculatePercentage:(e,t,o)=>Math.round(e/(t-o)*100),updateScrollProgressBar(e){if(this.isHasScrollProgressBar){const t=e.toFixed(3),o=0===e?"hidden":"visible";this.scrollProgressBar_dom.style.visibility=o,this.scrollProgressBar_dom.style.width=`${t}%`}},updateScrollPercent(e){if(this.isHasScrollPercent){const t=this.backToTopButton_dom.querySelector(".percent"),o=0!==e&&void 0!==e;this.backToTopButton_dom.classList.toggle("show",o),t.innerHTML=e.toFixed(0)}},updatePageTopVisibility(e,t){if(Global.theme_config.navbar.auto_hide){const o=this.prevScrollValue,s=o>t&&e>o;this.pageTop_dom.classList.toggle("hide",s)}else this.pageTop_dom.classList.remove("hide")},calculatePercentage:(e,t,o)=>Math.round(e/(t-o)*100),registerWindowScroll(){window.addEventListener("scroll",(()=>{this.updateScrollStyle(),this.updateTOCScroll(),this.updateNavbarShrink(),this.updateHomeBannerBlur(),this.updateAutoHideTools(),this.updateAPlayerAutoHide()}))},updateTOCScroll(){Global.theme_config.articles.toc.enable&&Global.utils.hasOwnProperty("updateActiveTOCLink")&&Global.utils.updateActiveTOCLink()},updateNavbarShrink(){navbarShrink.init()},updateHomeBannerBlur(){if("fixed"===Global.theme_config.home_banner.style&&location.pathname===Global.hexo_config.root){const t=document.querySelector(".home-banner-background"),o=window.innerHeight,s=(window.scrollY||window.pageYOffset)>=o/2?15:0;try{t.style.transition="0.3s",t.style.webkitFilter=`blur(${s}px)`}catch(e){}}},updateAutoHideTools(){const e=window.pageYOffset,t=document.body.scrollHeight,o=window.innerHeight,s=document.getElementsByClassName("right-side-tools-container");for(let a=0;a<s.length;a++){const l=s[a];e<=0?"/"!==location.pathname||l.classList.add("hide"):e+o>=t-20?l.classList.add("hide"):l.classList.remove("hide")}},updateAPlayerAutoHide(){const e=document.getElementById("aplayer");if(null==e);else{const t=window.pageYOffset,o=document.body.scrollHeight,s=window.innerHeight;t<=0?"/"!==location.pathname||e.classList.add("hide"):t+s>=o-20?e.classList.add("hide"):e.classList.remove("hide")}},toggleToolsList(){this.toggleButton.addEventListener("click",(()=>{this.toolsList.classList.toggle("show")}))},globalFontSizeAdjust(){const e=this.html_root_dom,t=document.querySelector(".tool-font-adjust-plus"),o=document.querySelector(".tool-font-adjust-minus"),s=document.defaultView.getComputedStyle(document.body).fontSize,a=parseFloat(s);let l=0;const i=Global.getStyleStatus();function r(t){const o=a*(1+.05*t);e.style.fontSize=`${o}px`,Global.styleStatus.fontSizeLevel=t,Global.setStyleStatus()}i&&(l=i.fontSizeLevel,r(l)),t.addEventListener("click",(function(){l=Math.min(l+1,5),r(l)})),o.addEventListener("click",(function(){l=Math.max(l-1,0),r(l)}))},contentAreaWidthAdjust(){const e=document.querySelector(".tool-expand-width"),t=document.querySelector(".navbar-content"),o=document.querySelector(".main-content"),s=e.querySelector("i"),a=Global.theme_config.global.content_max_width||"1000px";let l=a,i=!1;!0===Global.theme_config.home_banner.enable&&"/"===window.location.pathname&&(l=1.2*parseInt(a)+"px");const r=e=>{Global.styleStatus.isExpandPageWidth=e,Global.setStyleStatus(),e?(s.classList.remove("fa-expand"),s.classList.add("fa-compress"),t.style.maxWidth="90%",o.style.maxWidth="90%"):(s.classList.remove("fa-compress"),s.classList.add("fa-expand"),t.style.maxWidth=l,o.style.maxWidth=a)};(()=>{const e=Global.getStyleStatus();e&&(i=e.isExpandPageWidth,r(i))})(),e.addEventListener("click",(()=>{i=!i,r(i)}))},goComment(){this.goComment_dom=document.querySelector(".go-comment"),this.goComment_dom&&this.goComment_dom.addEventListener("click",(()=>{const e=document.querySelector("#comment-anchor").getBoundingClientRect().top+window.scrollY;window.anime({targets:document.scrollingElement,duration:500,easing:"linear",scrollTop:e-10})}))},getElementHeight(e){const t=document.querySelector(e);return t?t.getBoundingClientRect().height:0},inithomeBannerHeight(){this.homeBanner_dom&&(this.homeBanner_dom.style.height=this.innerHeight+"px")},initPageHeightHandle(){if(this.homeBanner_dom)return;const e=this.getElementHeight(".main-content-header")+this.getElementHeight(".main-content-body")+this.getElementHeight(".main-content-footer"),t=window.innerHeight,o=document.querySelector(".main-content-footer");if(e<t){const s=Math.floor(t-e);s>0&&(o.style.marginTop=s-2+"px")}},imageViewer(){let e=!1;const t=(e,t)=>{document.body.style.overflow=t?"hidden":"auto",t?e.classList.add("active"):e.classList.remove("active")},o=document.querySelector(".image-viewer-container"),s=document.querySelector(".image-viewer-container img");o&&o.addEventListener("click",(()=>{e=!1,t(o,e)}));const a=document.querySelectorAll(".markdown-body img, .masonry-item img");a.length?a.forEach((a=>{a.addEventListener("click",(()=>{e=!0,t(o,e),s.setAttribute("src",a.getAttribute("src"))}))})):this.pageContainer_dom.removeChild(o)},setHowLongAgoLanguage:(e,t)=>t.replace(/%s/g,e),getHowLongAgo(e){const t=Global.language_ago,o=Math.floor(e/2592e3/12),s=Math.floor(e/2592e3),a=Math.floor(e/86400/7),l=Math.floor(e/86400),i=Math.floor(e/3600%24),r=Math.floor(e/60%60),n=Math.floor(e%60);return o>0?this.setHowLongAgoLanguage(o,t.year):s>0?this.setHowLongAgoLanguage(s,t.month):a>0?this.setHowLongAgoLanguage(a,t.week):l>0?this.setHowLongAgoLanguage(l,t.day):i>0?this.setHowLongAgoLanguage(i,t.hour):r>0?this.setHowLongAgoLanguage(r,t.minute):n>0?this.setHowLongAgoLanguage(n,t.second):void 0},relativeTimeInHome(){const e=document.querySelectorAll(".home-article-meta-info .home-article-date"),t=Global.theme_config.home.article_date_format;"relative"===t?e&&e.forEach((e=>{const t=Date.now(),o=new Date(e.dataset.date.split(" GMT")[0]).getTime();e.innerHTML=this.getHowLongAgo(Math.floor((t-o)/1e3))})):"auto"===t&&e&&e.forEach((e=>{const t=Date.now(),o=new Date(e.dataset.date.split(" GMT")[0]).getTime();Math.floor((t-o)/864e5)<7&&(e.innerHTML=this.getHowLongAgo(Math.floor((t-o)/1e3)))}))},pjaxProgressBarStart(){this.pjaxProgressBarTimer&&clearInterval(this.pjaxProgressBarTimer),this.isHasScrollProgressBar&&this.scrollProgressBar_dom.classList.add("hide"),this.pjaxProgressBar_dom.style.width="0",this.pjaxProgressIcon_dom.classList.add("show");let e=1;this.pjaxProgressBar_dom.classList.add("show"),this.pjaxProgressBar_dom.style.width=e+"%",this.pjaxProgressBarTimer=setInterval((()=>{e+=5,e>99&&(e=99),this.pjaxProgressBar_dom.style.width=e+"%"}),100)},pjaxProgressBarEnd(){this.pjaxProgressBarTimer&&clearInterval(this.pjaxProgressBarTimer),this.pjaxProgressBar_dom.style.width="100%";const e=setTimeout((()=>{this.pjaxProgressBar_dom.classList.remove("show"),this.pjaxProgressIcon_dom.classList.remove("show"),this.isHasScrollProgressBar&&this.scrollProgressBar_dom.classList.remove("hide");const t=setTimeout((()=>{this.pjaxProgressBar_dom.style.width="0",clearTimeout(e),clearTimeout(t)}),200)}),200)}},Global.utils.registerWindowScroll(),Global.utils.toggleToolsList(),Global.utils.globalFontSizeAdjust(),Global.utils.contentAreaWidthAdjust(),Global.utils.goComment(),Global.utils.initPageHeightHandle(),Global.utils.inithomeBannerHeight(),Global.utils.imageViewer(),Global.utils.relativeTimeInHome()};
+/* utils function */
+import { navbarShrink } from "./layouts/navbarShrink.js";
+import { initTOC } from "./layouts/toc.js";
+import { main } from "./main.js";
+import imageViewer from "./tools/imageViewer.js";
+
+export const navigationState = {
+  isNavigating: false,
+};
+
+export default function initUtils() {
+  const utils = {
+    html_root_dom: document.querySelector("html"),
+    pageContainer_dom: document.querySelector(".page-container"),
+    pageTop_dom: document.querySelector(".main-content-header"),
+    homeBanner_dom: document.querySelector(".home-banner-container"),
+    scrollProgressBar_dom: document.querySelector(".scroll-progress-bar"),
+    pjaxProgressBar_dom: document.querySelector(".pjax-progress-bar"),
+    pjaxProgressIcon_dom: document.querySelector(".swup-progress-icon"),
+    backToTopButton_dom: document.querySelector(".tool-scroll-to-top"),
+    toolsList: document.querySelector(".hidden-tools-list"),
+    toggleButton: document.querySelector(".toggle-tools-list"),
+
+    innerHeight: window.innerHeight,
+    pjaxProgressBarTimer: null,
+    prevScrollValue: 0,
+    fontSizeLevel: 0,
+
+    isHasScrollProgressBar: theme.global.scroll_progress.bar === true,
+    isHasScrollPercent: theme.global.scroll_progress.percentage === true,
+
+    // Scroll Style
+    updateScrollStyle() {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      const percent = this.calculatePercentage(
+        scrollTop,
+        scrollHeight,
+        clientHeight,
+      );
+
+      this.updateScrollProgressBar(percent);
+      this.updateScrollPercent(percent);
+      this.updatePageTopVisibility(scrollTop, clientHeight);
+
+      this.prevScrollValue = scrollTop;
+    },
+
+    updateScrollProgressBar(percent) {
+      if (this.isHasScrollProgressBar) {
+        const progressPercent = percent.toFixed(3);
+        const visibility = percent === 0 ? "hidden" : "visible";
+
+        this.scrollProgressBar_dom.style.visibility = visibility;
+        this.scrollProgressBar_dom.style.width = `${progressPercent}%`;
+      }
+    },
+
+    updateScrollPercent(percent) {
+      if (this.isHasScrollPercent) {
+        const percentDom = this.backToTopButton_dom.querySelector(".percent");
+        const showButton = percent !== 0 && percent !== undefined;
+
+        this.backToTopButton_dom.classList.toggle("show", showButton);
+        percentDom.innerHTML = percent.toFixed(0);
+      }
+    },
+
+    updatePageTopVisibility(scrollTop, clientHeight) {
+      if (theme.navbar.auto_hide) {
+        const prevScrollValue = this.prevScrollValue;
+        const hidePageTop =
+          prevScrollValue > clientHeight && scrollTop > prevScrollValue;
+
+        this.pageTop_dom.classList.toggle("hide", hidePageTop);
+      } else {
+        this.pageTop_dom.classList.remove("hide");
+      }
+    },
+
+    calculatePercentage(scrollTop, scrollHeight, clientHeight) {
+      return Math.round((scrollTop / (scrollHeight - clientHeight)) * 100);
+    },
+
+    // register window scroll event
+    registerWindowScroll() {
+      window.addEventListener("scroll", () => {
+        this.updateScrollStyle();
+        this.updateTOCScroll();
+        this.updateNavbarShrink();
+        this.updateHomeBannerBlur();
+        this.updateAutoHideTools();
+        this.updateAPlayerAutoHide();
+      });
+    },
+
+    updateTOCScroll() {
+      if (
+        theme.articles.toc.enable &&
+        initTOC().hasOwnProperty("updateActiveTOCLink")
+      ) {
+        initTOC().updateActiveTOCLink();
+      }
+    },
+
+    updateNavbarShrink() {
+      if (!navigationState.isNavigating) {
+        navbarShrink.init();
+      }
+    },
+
+    updateHomeBannerBlur() {
+      if (
+        theme.home_banner.style === "fixed" &&
+        location.pathname === config.root
+      ) {
+        const blurElement = document.querySelector(".home-banner-background");
+        const viewHeight = window.innerHeight;
+        const scrollY = window.scrollY || window.pageYOffset;
+        const triggerViewHeight = viewHeight / 2;
+        const blurValue = scrollY >= triggerViewHeight ? 15 : 0;
+
+        try {
+          blurElement.style.transition = "0.3s";
+          blurElement.style.webkitFilter = `blur(${blurValue}px)`;
+        } catch (e) {}
+      }
+    },
+
+    updateAutoHideTools() {
+      const y = window.pageYOffset;
+      const height = document.body.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const toolList = document.getElementsByClassName(
+        "right-side-tools-container",
+      );
+
+      for (let i = 0; i < toolList.length; i++) {
+        const tools = toolList[i];
+        if (y <= 0) {
+          if (location.pathname !== "/") {
+            //console.log(location.pathname)
+          } else {
+            tools.classList.add("hide");
+          }
+        } else if (y + windowHeight >= height - 20) {
+          tools.classList.add("hide");
+        } else {
+          tools.classList.remove("hide");
+        }
+      }
+    },
+
+    updateAPlayerAutoHide() {
+      const aplayer = document.getElementById("aplayer");
+      if (aplayer == null) {
+      } else {
+        const y = window.pageYOffset;
+        const height = document.body.scrollHeight;
+        const windowHeight = window.innerHeight;
+        if (y <= 0) {
+          if (location.pathname !== "/") {
+            //console.log(location.pathname)
+          } else {
+            aplayer.classList.add("hide");
+          }
+        } else if (y + windowHeight >= height - 20) {
+          aplayer.classList.add("hide");
+        } else {
+          aplayer.classList.remove("hide");
+        }
+      }
+    },
+
+    toggleToolsList() {
+      this.toggleButton.addEventListener("click", () => {
+        this.toolsList.classList.toggle("show");
+      });
+    },
+
+    globalFontSizeAdjust() {
+      const htmlRoot = this.html_root_dom;
+      const fontAdjustPlus = document.querySelector(".tool-font-adjust-plus");
+      const fontAdjustMinus = document.querySelector(".tool-font-adjust-minus");
+
+      const fontSize = document.defaultView.getComputedStyle(
+        document.body,
+      ).fontSize;
+      const baseFontSize = parseFloat(fontSize);
+
+      let fontSizeLevel = 0;
+      const styleStatus = main.getStyleStatus();
+      if (styleStatus) {
+        fontSizeLevel = styleStatus.fontSizeLevel;
+        setFontSize(fontSizeLevel);
+      }
+
+      function setFontSize(level) {
+        const fontSize = baseFontSize * (1 + level * 0.05);
+        htmlRoot.style.fontSize = `${fontSize}px`;
+        main.styleStatus.fontSizeLevel = level;
+        main.setStyleStatus();
+      }
+
+      function increaseFontSize() {
+        fontSizeLevel = Math.min(fontSizeLevel + 1, 5);
+        setFontSize(fontSizeLevel);
+      }
+
+      function decreaseFontSize() {
+        fontSizeLevel = Math.max(fontSizeLevel - 1, 0);
+        setFontSize(fontSizeLevel);
+      }
+
+      fontAdjustPlus.addEventListener("click", increaseFontSize);
+      fontAdjustMinus.addEventListener("click", decreaseFontSize);
+    },
+    // go comment anchor
+    goComment() {
+      this.goComment_dom = document.querySelector(".go-comment");
+      if (this.goComment_dom) {
+        this.goComment_dom.addEventListener("click", () => {
+          const target = document.querySelector("#comment-anchor");
+          if (target) {
+            const offset = target.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: offset,
+              behavior: "smooth",
+            });
+          }
+        });
+      }
+    },
+
+    // get dom element height
+    getElementHeight(selectors) {
+      const dom = document.querySelector(selectors);
+      return dom ? dom.getBoundingClientRect().height : 0;
+    },
+
+    // init first screen height
+    inithomeBannerHeight() {
+      this.homeBanner_dom &&
+        (this.homeBanner_dom.style.height = this.innerHeight + "px");
+    },
+
+    // init page height handle
+    initPageHeightHandle() {
+      if (this.homeBanner_dom) return;
+      const temp_h1 = this.getElementHeight(".main-content-header");
+      const temp_h2 = this.getElementHeight(".main-content-body");
+      const temp_h3 = this.getElementHeight(".main-content-footer");
+      const allDomHeight = temp_h1 + temp_h2 + temp_h3;
+      const innerHeight = window.innerHeight;
+      const pb_dom = document.querySelector(".main-content-footer");
+      if (allDomHeight < innerHeight) {
+        const marginTopValue = Math.floor(innerHeight - allDomHeight);
+        if (marginTopValue > 0) {
+          pb_dom.style.marginTop = `${marginTopValue - 2}px`;
+        }
+      }
+    },
+
+    // big image viewer
+
+    // set how long ago language
+    setHowLongAgoLanguage(p1, p2) {
+      return p2.replace(/%s/g, p1);
+    },
+
+    getHowLongAgo(timestamp) {
+      const l = lang_ago;
+
+      const __Y = Math.floor(timestamp / (60 * 60 * 24 * 30) / 12);
+      const __M = Math.floor(timestamp / (60 * 60 * 24 * 30));
+      const __W = Math.floor(timestamp / (60 * 60 * 24) / 7);
+      const __d = Math.floor(timestamp / (60 * 60 * 24));
+      const __h = Math.floor((timestamp / (60 * 60)) % 24);
+      const __m = Math.floor((timestamp / 60) % 60);
+      const __s = Math.floor(timestamp % 60);
+
+      if (__Y > 0) {
+        return this.setHowLongAgoLanguage(__Y, l.year);
+      } else if (__M > 0) {
+        return this.setHowLongAgoLanguage(__M, l.month);
+      } else if (__W > 0) {
+        return this.setHowLongAgoLanguage(__W, l.week);
+      } else if (__d > 0) {
+        return this.setHowLongAgoLanguage(__d, l.day);
+      } else if (__h > 0) {
+        return this.setHowLongAgoLanguage(__h, l.hour);
+      } else if (__m > 0) {
+        return this.setHowLongAgoLanguage(__m, l.minute);
+      } else if (__s > 0) {
+        return this.setHowLongAgoLanguage(__s, l.second);
+      }
+    },
+
+    relativeTimeInHome() {
+      const post = document.querySelectorAll(
+        ".home-article-meta-info .home-article-date",
+      );
+      const df = theme.home.article_date_format;
+      if (df === "relative") {
+        post &&
+          post.forEach((v) => {
+            const nowDate = Date.now();
+            const postDate = new Date(
+              v.dataset.date.split(" GMT")[0],
+            ).getTime();
+            v.innerHTML = this.getHowLongAgo(
+              Math.floor((nowDate - postDate) / 1000),
+            );
+          });
+      } else if (df === "auto") {
+        post &&
+          post.forEach((v) => {
+            const nowDate = Date.now();
+            const postDate = new Date(
+              v.dataset.date.split(" GMT")[0],
+            ).getTime();
+            const finalDays = Math.floor(
+              (nowDate - postDate) / (60 * 60 * 24 * 1000),
+            );
+            if (finalDays < 7) {
+              v.innerHTML = this.getHowLongAgo(
+                Math.floor((nowDate - postDate) / 1000),
+              );
+            }
+          });
+      }
+    },
+  };
+
+  // init scroll
+  utils.registerWindowScroll();
+
+  // toggle show tools list
+  utils.toggleToolsList();
+
+  // main font adjust
+  utils.globalFontSizeAdjust();
+
+  // go comment
+  utils.goComment();
+
+  // init page height handle
+  utils.initPageHeightHandle();
+
+  // init first screen height
+  utils.inithomeBannerHeight();
+
+  // set how long ago in home article block
+  utils.relativeTimeInHome();
+
+  // image viewer handle
+  imageViewer();
+}
