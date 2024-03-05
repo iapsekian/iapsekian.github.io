@@ -1,0 +1,245 @@
+site_name: Tâi-Gí Sè-Kài
+site_url: https://iapsekian.github.io
+# site_description: 
+# site_author: 
+copyright: >
+  Copyright &copy; 2023 - 2024 Ia̍p Sè Kian - 
+  <a href="#__consent">change cookie settings</a>
+
+# site_dir: site
+# docs_dir: docs
+
+# repo_name: 
+# repo_url: https://github.com/iapsekian/iapsekian.github.io
+# edit_uri: 
+# edit_uri_template: 
+
+theme: 
+  name: material
+  language: en
+  logo: images/taigi.png
+  favicon: images/favicon.png
+  # font:
+  #   text: Roboto
+  #   code: Roboto Mono
+  # locale: en
+  custom_dir: overrides
+  # static_templates:
+  #   - sitemap.html
+  # include_sidebar: fale
+  direction: ltr
+  features:
+    - header.autohide
+    - announce.dismiss
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    # - toc.integrate # integrate with the left sidebar
+  # icon:
+  #   tag:
+  #     html: fontawesome/brands/html5
+  #     js: fontawesome/brands/js
+  #     css:  fontawesome/brands/css3
+  palette: 
+    scheme: slate
+    primary: deep purple
+    accent: blue
+  
+nav:
+  - Home: 'index.md'
+  - Tags: 'tags.md'
+  # - About: 'about.md'
+  # - 'Issue Tracker': 'issue tracker.md'
+  # - 'Bug Tracker': '/bugs/'
+
+# not_in_nav: |
+#   /private.md
+
+# MkDocs uses the Python Markdown library to translate Markdown files into HTML. 
+# Python Markdown supports a variety of extensions that customize how pages are formatted. 
+# This setting lets you enable a list of extensions beyond the ones that MkDocs uses by default (meta, toc, tables, and fenced_code).
+# markdown_extensions:
+#   smarty: {}
+#   toc:
+#     permalink: true
+#   sane_lists: {}
+
+# A list of paths to Python scripts (relative to mkdocs.yml) that are loaded and used as plugin instances.
+# hooks:
+#   - my_hooks.py
+
+# A list of plugins (with optional configuration settings) to use when building the site. See the Plugins documentation for full details.
+# If the plugins config setting is defined in the mkdocs.yml config file, then any defaults (such as search) are ignored and you need to explicitly re-enable the defaults if you would like to continue using them
+plugins:
+  - search
+  - tags:
+      enabled: true
+      tags_file: tags.md
+  # - social:
+  #     cards_layout_options:
+  #       font_family: Noto Snas TC
+  - blog:
+      enabled: true
+      blog_dir: .
+      blog_toc: true
+      post_url_format: '{slug}'
+      post_excerpt: optional
+      categories: true
+      categories_name: Categories
+      # categories_allowed:
+      #   - 'Hello'
+      #   - 'World'
+      archive: true
+      # archive_name: Archive
+      archive_date_format: MMMM yyyy
+      archive_url_date_format: yyyy/MM
+      # archive_toc: 
+      authors: true
+      pagination: true
+      pagination_per_page: 10
+      pagination_url_format: 'page/{page}'
+      draft: false
+      draft_on_serve: false
+      draft_if_future_date: true
+  - rss:
+      enabled: true
+      match_path: posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+  - privacy
+  # - projects # allows to split your documentation into multiple distinct MkDocs projects, build them concurrently and serve them together.
+  # - optimize
+  - offline
+# plugins:
+#   - search
+#   - your_other_plugin:
+#       option1: value
+#       option2: other value
+# plugins:
+#   search: {}
+#   your_other_plugin:
+#     option1: value
+#     option2: other value
+# plugins:
+#   - search:
+#       separator: '[\s\-\.]+'
+# plugins:
+#   - search:
+#       min_search_length: 2
+# plugins:
+#   - search:
+#       indexing: 'full'
+
+extra:
+  analytics:
+    provider: google
+    property: G-NP8ZKPKFJZ
+    # provider: baidu
+    # property: XXXX
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/iapsekian
+      name: Ia̍p Sè Kian on Twitter
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/profile.php?id=61554686046135
+      name: Ia̍p Sè Kian on Facebook
+    - icon: fontawesome/brands/mastodon
+      link: https://fosstodon.org/@squidfunk
+      name: Ia̍p Sè Kian on Mastodon
+  # generator: false
+  # tags:
+  #   HTML5: html
+  #   JavaScript: js
+  #   CSS: css
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    # cookies:
+    #   analytics: Google Analytics 
+    #   custom: Custom cookie
+    actions:
+      - manage
+      - reject
+      - accept
+#   alternate:
+#     - name: English
+#       link: /en/ 
+#       lang: en
+#     - name: Deutsch
+#       link: /de/
+#       lang: de
+
+extra_css:
+  - stylesheets/extra.css
+#   - css/extra.css
+#   - css/extra1.css
+
+extra_javascript:
+  - javascripts/shortcuts.js
+  # - javascripts/custom-feedback.js
+#   - some_plain_javascript.js       # <script src="some_plain_javascript.js"></script>
+#         # New behavior in MkDocs 1.5:
+#   - implicitly_as_module.mjs       # <script src="implicitly_as_module.mjs" type="module"></script>
+#         # Config keys only supported since MkDocs 1.5:
+#   - path: explicitly_as_module.mjs # <script src="explicitly_as_module.mjs" type="module"></script>
+#     type: module
+#   - path: deferred_plain.js        # <script src="deferred_plain.js" defer></script>
+#     defer: true
+#   - path: scripts/async_module.mjs # <script src="scripts/async_module.mjs" type="module" async></script>
+#     type: module
+#     async: true
+
+# extra_templates:
+#   - xxx.html
+
+# watch:
+#   - directory_a
+#   - directory_b
+
+#This setting controls the style used for linking to pages within the documentation. false means url will include html file
+use_directory_urls: true
+
+strict: false
+dev_addr: "127.0.0.1:8000"
+
+remote_name: origin
+remote_branch: gh-pages
+
+# exclude_docs: |
+#   api-config.json    # A file with this name anywhere.
+#   drafts/            # A "drafts" directory anywhere.
+#   /requirements.txt  # Top-level "docs/requirements.txt".
+#   *.py               # Any file with this extension anywhere.
+#   !/foo/example.py   # But keep this particular file.

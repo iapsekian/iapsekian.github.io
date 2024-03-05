@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "iapsekian-github-io"
+version = "0.1.0"
+description = ""
+authors = ["Casper Yeh <casper.yeh@gmail.com>"]
+readme = "README.md"
+packages = [{include = "iapsekian"}]
+
+[tool.poetry.dependencies]
+python = "~3.12"
+mkdocs-material = {extras = ["imaging"], version = "^9.5.12"}
+mkdocs-rss-plugin = "^1.12.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
