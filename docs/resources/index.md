@@ -1,23 +1,27 @@
 ---
-title: Thâu-Ia̍h
+title: Resources
 # slug: h-w
-description: Thâu-Ia̍h
+description: Tai-gi resources index page 
 # icon: material/emoticon-happy
 # status: new
 # template: custom.html
 draft: false 
-date: 2024-03-18
+date: 2024-03-19
 authors:
   - casper
 categories:
-  - HelloWorld
-  - ThâuIa̍h
+  - Resources
+  - Tai-gi
 tags:
-  - HelloWorld
-  - ThâuIa̍h
+  - Resources
+  - Tai-gi
 # comments: true
 readtime: 10
 # hide:
 #   - feedback
 ---
-# Thâu-Ia̍h
+# Topic 1
+
+## Iû Lâi
+
+## Án-Chóaⁿ Bē Iōng Tâi-gí？

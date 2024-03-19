@@ -1,7 +1,7 @@
-site_name: Tâi-Gí Sè-Kài
+site_name: 台語ê世界 Tâi-Gí ê Sè-Kài
 site_url: https://iapsekian.github.io
-# site_description: 
-# site_author: 
+site_description: Ia̍p Sè Kian ê Tâi-gí Bûn Ki-su̍t Kì-lo̍k Ia̍h-bīn
+site_author: Casper Yeh 
 copyright: >
   Copyright &copy; 2023 - 2024 Ia̍p Sè Kian - 
   <a href="#__consent">change cookie settings</a>
@@ -16,7 +16,7 @@ copyright: >
 
 theme: 
   name: material
-  language: en
+  language: zh-TW
   logo: images/taigi.png
   favicon: images/favicon.png
   # font:
@@ -46,19 +46,38 @@ theme:
     - navigation.footer
     - toc.follow
     # - toc.integrate # integrate with the left sidebar
-  # icon:
-  #   tag:
-  #     html: fontawesome/brands/html5
-  #     js: fontawesome/brands/js
-  #     css:  fontawesome/brands/css3
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
   palette: 
     scheme: slate
     primary: deep purple
     accent: blue
-  
+  icon:
+    # tag:
+    #   html: fontawesome/brands/html5
+    #   js: fontawesome/brands/js
+    #   css:  fontawesome/brands/css3
+    annotation: material/arrow-right-circle
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+
 nav:
-  - Home: 'index.md'
-  - Tags: 'tags.md'
+  # - Thâu-Ia̍h: 'index.md'
+  - 資源 Chu-goân: 'resources/index.md'
+  - 籤頭 Chhiam-Thâu: 'tags.md'
   # - About: 'about.md'
   # - 'Issue Tracker': 'issue tracker.md'
   # - 'Bug Tracker': '/bugs/'
@@ -75,74 +94,38 @@ nav:
 #     permalink: true
 #   sane_lists: {}
 
-# A list of paths to Python scripts (relative to mkdocs.yml) that are loaded and used as plugin instances.
-# hooks:
-#   - my_hooks.py
-
-# A list of plugins (with optional configuration settings) to use when building the site. See the Plugins documentation for full details.
-# If the plugins config setting is defined in the mkdocs.yml config file, then any defaults (such as search) are ignored and you need to explicitly re-enable the defaults if you would like to continue using them
-plugins:
-  - search
-  - tags:
-      enabled: true
-      tags_file: tags.md
-  # - social:
-  #     cards_layout_options:
-  #       font_family: Noto Snas TC
-  - blog:
-      enabled: true
-      blog_dir: .
-      blog_toc: true
-      post_url_format: '{slug}'
-      post_excerpt: optional
-      categories: true
-      categories_name: Categories
-      # categories_allowed:
-      #   - 'Hello'
-      #   - 'World'
-      archive: true
-      # archive_name: Archive
-      archive_date_format: MMMM yyyy
-      archive_url_date_format: yyyy/MM
-      # archive_toc: 
-      authors: true
-      pagination: true
-      pagination_per_page: 10
-      pagination_url_format: 'page/{page}'
-      draft: false
-      draft_on_serve: false
-      draft_if_future_date: true
-  - rss:
-      enabled: true
-      match_path: posts/.* 
-      date_from_meta:
-        as_creation: date
-      categories:
-        - categories
-        - tags
-  - privacy
-  # - projects # allows to split your documentation into multiple distinct MkDocs projects, build them concurrently and serve them together.
-  # - optimize
-  - offline
-# plugins:
-#   - search
-#   - your_other_plugin:
-#       option1: value
-#       option2: other value
-# plugins:
-#   search: {}
-#   your_other_plugin:
-#     option1: value
-#     option2: other value
-# plugins:
-#   - search:
-#       separator: '[\s\-\.]+'
-# plugins:
-#   - search:
-#       min_search_length: 2
-# plugins:
-#   - search:
-#       indexing: 'full'
+markdown_extensions:
+  - admonition                  # admonition
+  - pymdownx.details            # admonition
+  - pymdownx.superfences:       # admonition, annotations, code blocks, content tabs, diagrams (Mermaid.js)
+      custom_fences:                                                    # diagrams (Mermaid.js)
+        - name: mermaid                                                 # diagrams (Mermaid.js)
+          class: mermaid                                                # diagrams (Mermaid.js)
+          format: !!python/name:pymdownx.superfences.fence_code_format  # diagrams (Mermaid.js)
+  - attr_list                   # annotations, buttons, grids, icons/emojis, images, tooltips
+  - md_in_html                  # annotations, grids, images
+  - pymdownx.highlight:         # code blocks
+      anchor_linenums: true     # code blocks
+      line_spans: __span        # code blocks
+      pygments_lang_class: true # code blocks
+  - pymdownx.inlinehilite       # code blocks
+  - pymdownx.snippets           # code blocks, tooltips
+  - pymdownx.tabbed:            # content tabs
+      alternate_style: true     # content tabs
+  - tables                      # data tables
+  - footnotes                   # footnotes
+  - pymdownx.critic             # formatting
+  - pymdownx.caret              # formatting
+  - pymdownx.keys               # formatting
+  - pymdownx.mark               # formatting
+  - pymdownx.tilde              # formatting
+  - pymdownx.emoji:                                                   # icons/emojis
+      emoji_index: !!python/name:material.extensions.emoji.twemoji    # icons/emojis
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg # icons/emojis
+  - def_list                    # lists
+  - pymdownx.tasklist:          # lists
+      custom_checkbox: true     # lists
+  - abbr                        # tooltips
 
 extra:
   analytics:
@@ -193,13 +176,19 @@ extra:
       - manage
       - reject
       - accept
-#   alternate:
-#     - name: English
-#       link: /en/ 
-#       lang: en
-#     - name: Deutsch
-#       link: /de/
-#       lang: de
+  # status:
+  #   WIP: Work in Progress
+  # alternate:
+  #   - name: 漢羅
+  #     link: / 
+  #     lang: zh-TW
+  #   - name: 白話字
+  #     link: /en/
+  #     lang: en
+
+# A list of paths to Python scripts (relative to mkdocs.yml) that are loaded and used as plugin instances.
+# hooks:
+#   - my_hooks.py
 
 extra_css:
   - stylesheets/extra.css
@@ -209,6 +198,8 @@ extra_css:
 extra_javascript:
   - javascripts/shortcuts.js
   # - javascripts/custom-feedback.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 #   - some_plain_javascript.js       # <script src="some_plain_javascript.js"></script>
 #         # New behavior in MkDocs 1.5:
 #   - implicitly_as_module.mjs       # <script src="implicitly_as_module.mjs" type="module"></script>
@@ -243,3 +234,93 @@ remote_branch: gh-pages
 #   /requirements.txt  # Top-level "docs/requirements.txt".
 #   *.py               # Any file with this extension anywhere.
 #   !/foo/example.py   # But keep this particular file.
+
+# A list of plugins (with optional configuration settings) to use when building the site. See the Plugins documentation for full details.
+# If the plugins config setting is defined in the mkdocs.yml config file, then any defaults (such as search) are ignored and you need to explicitly re-enable the defaults if you would like to continue using them
+plugins:
+  - search
+  - tags:
+      enabled: true
+      tags_file: tags.md
+  # - social:
+  #     cards_layout_options:
+  #       font_family: Noto Snas TC
+  - blog:
+      enabled: true
+      blog_dir: .
+      blog_toc: true
+      post_url_format: '{slug}'
+      post_excerpt: optional
+      categories: true
+      categories_name: Categories
+      # categories_allowed:
+      #   - 'Hello'
+      #   - 'World'
+      archive: true
+      # archive_name: Archive
+      archive_date_format: MMMM yyyy
+      archive_url_date_format: yyyy/MM
+      # archive_toc: 
+      authors: true
+      authors_file: "./.authors.yml"
+      pagination: true
+      pagination_per_page: 10
+      pagination_url_format: 'page/{page}'
+      draft: false
+      draft_on_serve: false
+      draft_if_future_date: true
+  - rss:
+      enabled: true
+      match_path: posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+  - privacy
+  # - projects # allows to split your documentation into multiple distinct MkDocs projects, build them concurrently and serve them together.
+  # - optimize
+  - offline
+  - glightbox
+  - table-reader
+  - meta-manager
+  # - i18n:
+  #     docs_structure: suffix
+  #     fallback_to_default: true
+  #     reconfigure_material: true
+  #     reconfigure_search: true
+  #     languages:
+  #       - locale: zh-TW
+  #         default: true
+  #         name: 漢羅
+  #         build: true
+  #         site_name: "台語世界 Tâi-Gí Sè-Kài"
+  #       - locale: en
+  #         name: Pe̍h-ōe-jī
+  #         build: true
+  #         site_name: "Tâi-Gí Sè-Kài"
+  #         theme:
+  #           palette:
+  #             primary: red
+  #         nav_translations:
+  #           資源: Chu-goân
+  #           籤頭: Chhiam-Thâu
+# plugins:
+#   - search
+#   - your_other_plugin:
+#       option1: value
+#       option2: other value
+# plugins:
+#   search: {}
+#   your_other_plugin:
+#     option1: value
+#     option2: other value
+# plugins:
+#   - search:
+#       separator: '[\s\-\.]+'
+# plugins:
+#   - search:
+#       min_search_length: 2
+# plugins:
+#   - search:
+#       indexing: 'full'

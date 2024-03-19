@@ -10,6 +10,10 @@ packages = [{include = "iapsekian"}]
 python = "~3.12"
 mkdocs-material = {extras = ["imaging"], version = "^9.5.12"}
 mkdocs-rss-plugin = "^1.12.1"
+mkdocs-glightbox = "^0.3.7"
+mkdocs-table-reader-plugin = "^2.1.0"
+mkdocs-meta-manager = "^0.2.1"
+mkdocs-static-i18n = {extras = ["material"], version = "^1.2.2"}
 
 
 [build-system]
