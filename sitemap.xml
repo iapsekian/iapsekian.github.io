@@ -2,37 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://iapsekian.github.io/index.html</loc>
-         <lastmod>2024-03-05</lastmod>
+         <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://iapsekian.github.io/tags.html</loc>
-         <lastmod>2024-03-05</lastmod>
+         <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://iapsekian.github.io/hello-world.html</loc>
-         <lastmod>2024-03-05</lastmod>
+         <loc>https://iapsekian.github.io/te-it-phi%E2%81%BF-b%C3%BBn-zh-tw.html</loc>
+         <lastmod>2024-03-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iapsekian.github.io/resources/index.html</loc>
+         <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://iapsekian.github.io/archive/2024/03.html</loc>
-         <lastmod>2024-03-05</lastmod>
+         <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://iapsekian.github.io/category/hello.html</loc>
-         <lastmod>2024-03-05</lastmod>
+         <loc>https://iapsekian.github.io/category/helloworld.html</loc>
+         <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://iapsekian.github.io/category/world.html</loc>
-         <lastmod>2024-03-05</lastmod>
+         <loc>https://iapsekian.github.io/category/te-it-phi%E2%81%BF-b%C3%BBn.html</loc>
+         <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://iapsekian.github.io/tags.html</loc>
-         <lastmod>2024-03-05</lastmod>
+         <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
